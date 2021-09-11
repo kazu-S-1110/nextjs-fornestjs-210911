@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { Text, Flex, Spinner, HStack } from '@chakra-ui/react';
-import { useQueryBook } from '../src/hooks/useQueryTasks';
+import { useQueryBook } from '../src/hooks/useQueryBooks';
 import React from 'react';
 
 const Home: NextPage = () => {
