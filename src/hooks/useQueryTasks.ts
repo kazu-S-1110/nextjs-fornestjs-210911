@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 export const useQueryBook = () => {
   const GetBooks = async () => {
-    const { data } = await axios.get(`localhost:8000/book/`);
+    const { data } = await axios.get(`http://localhost:8000/book/`);
     return data;
   };
 
