@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { Text, Flex, Spinner, HStack } from '@chakra-ui/react';
 import { useQueryBook } from '../src/hooks/useQueryBooks';
 import React from 'react';
+import { InputForm } from '../src/components/InputForm';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
           {book.title}
         </Text>
       ))}
+      <InputForm />
     </Flex>
   );
 };
