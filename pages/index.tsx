@@ -29,7 +29,7 @@ const Home: NextPage = () => {
           fontWeight="extrabold"
           key={book._id}
         >
-          {book.title}
+          {book.title} : {book.model} : {book.created_at}
         </Text>
       ))}
       <InputForm />

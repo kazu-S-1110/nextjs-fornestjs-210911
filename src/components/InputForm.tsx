@@ -19,7 +19,7 @@ export const InputForm = () => {
   const { createBookMutation } = useMutationBook();
 
   const onSubmit = (values) => {
-    createBookMutation(values);
+    createBookMutation.mutate(values);
     reset();
   };
 

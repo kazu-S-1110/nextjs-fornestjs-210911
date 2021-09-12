@@ -1,11 +1,20 @@
 import axios from 'axios';
-import { QueryClient, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 export const useMutationBook = () => {
-  const QueryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
-  const createBookMutation = (book) => {
-    axios.post('http://localhost:8000/book/', book);
-  };
+  const createBookMutation = useMutation(
+    (book) => axios.post('http://localhost:8000/book/', book),
+    {
+      onSuccess: (res) => {
+        const previousBooks = queryClient.getQueryData('books');
+        if (previousBooks) {
+          queryClient.setQueryData('books', [...previousBooks, res.data]);
+        }
+      },
+    }
+  );
+
   return { createBookMutation };
 };
