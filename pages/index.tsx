@@ -24,8 +24,9 @@ const Home: NextPage = () => {
     );
   }
   return (
-    <Flex direction="column" alignItems="center">
+    <Flex direction="column" p="10" bg="aliceblue">
       <Text
+        alignSelf="center"
         bgGradient="linear(to-l, #b071eb,#ff4da6)"
         bgClip="text"
         fontSize="6xl"
@@ -39,8 +40,8 @@ const Home: NextPage = () => {
           {moment(book.created_at).format('YYYY-MM-DD HH:mm:ss')}
         </Text>
       ))} */}
-      {/* <BookGarageA data={data} /> */}
-      <BookGarageB books={data} />
+      <BookGarageA data={data} />
+      {/* <BookGarageB books={data} /> */}
       <InputForm />
     </Flex>
   );
