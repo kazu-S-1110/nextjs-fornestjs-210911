@@ -4,6 +4,7 @@ import { useQueryBook } from '../src/hooks/useQueryBooks';
 import React from 'react';
 import { InputForm } from '../src/components/InputForm';
 import moment from 'moment';
+import Typed from 'react-typed';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
@@ -22,6 +23,14 @@ const Home: NextPage = () => {
   }
   return (
     <Flex direction="column" alignItems="center">
+      <Text
+        bgGradient="linear(to-l, #b071eb,#ff4da6)"
+        bgClip="text"
+        fontSize="6xl"
+        fontWeight="extrabold"
+      >
+        <Typed strings={['OverView']} typeSpeed={100} />
+      </Text>
       {data?.map((book) => (
         <Text
           bgGradient="linear(to-l, #140027,#752b50)"
