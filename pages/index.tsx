@@ -5,6 +5,7 @@ import React from 'react';
 import { InputForm } from '../src/components/InputForm';
 import moment from 'moment';
 import Typed from 'react-typed';
+import { BookGarage } from '../src/components/BookGarage';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
@@ -31,18 +32,13 @@ const Home: NextPage = () => {
       >
         <Typed strings={['OverView']} typeSpeed={100} />
       </Text>
-      {data?.map((book) => (
-        <Text
-          bgGradient="linear(to-l, #140027,#752b50)"
-          bgClip="text"
-          fontSize="2xl"
-          fontWeight="extrabold"
-          key={book._id}
-        >
+      {/* {data?.map((book) => (
+        <Text fontSize="lg" fontWeight="extrabold" key={book._id}>
           {book.title} : {book.model} :
           {moment(book.created_at).format('YYYY-MM-DD HH:mm:ss')}
         </Text>
-      ))}
+      ))} */}
+      <BookGarage data={data} />
       <InputForm />
     </Flex>
   );
