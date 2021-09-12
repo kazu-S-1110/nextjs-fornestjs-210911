@@ -3,6 +3,7 @@ import { Text, Flex, Spinner, HStack } from '@chakra-ui/react';
 import { useQueryBook } from '../src/hooks/useQueryBooks';
 import React from 'react';
 import { InputForm } from '../src/components/InputForm';
+import moment from 'moment';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
@@ -29,7 +30,8 @@ const Home: NextPage = () => {
           fontWeight="extrabold"
           key={book._id}
         >
-          {book.title} : {book.model} : {book.created_at}
+          {book.title} : {book.model} :
+          {moment(book.created_at).format('YYYY-MM-DD HH:mm:ss')}
         </Text>
       ))}
       <InputForm />
