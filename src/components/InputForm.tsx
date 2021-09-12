@@ -13,12 +13,14 @@ export const InputForm = () => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm();
   const { createBookMutation } = useMutationBook();
 
   const onSubmit = (values) => {
     createBookMutation(values);
+    reset();
   };
 
   return (
