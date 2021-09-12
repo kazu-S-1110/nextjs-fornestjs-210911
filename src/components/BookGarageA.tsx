@@ -21,7 +21,7 @@ const tableIcons = {
   Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
 };
 
-export const BookGarage = ({ data }) => {
+export const BookGarageA = ({ data }) => {
   console.log(data);
   return (
     <Box w="90%">
@@ -30,7 +30,7 @@ export const BookGarage = ({ data }) => {
         columns={[
           { title: 'title', field: 'title' },
           { title: 'model', field: 'model' },
-          { title: 'created_at', field: 'created_at' },
+          { title: 'created_at', field: 'createdAt' },
         ]}
         data={data}
         title="SetupList"

@@ -5,7 +5,8 @@ import React from 'react';
 import { InputForm } from '../src/components/InputForm';
 import moment from 'moment';
 import Typed from 'react-typed';
-import { BookGarage } from '../src/components/BookGarage';
+import { BookGarageA } from '../src/components/BookGarageA';
+import { BookGarageB } from '../src/components/BookGarageB';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
@@ -38,7 +39,8 @@ const Home: NextPage = () => {
           {moment(book.created_at).format('YYYY-MM-DD HH:mm:ss')}
         </Text>
       ))} */}
-      <BookGarage data={data} />
+      {/* <BookGarageA data={data} /> */}
+      <BookGarageB books={data} />
       <InputForm />
     </Flex>
   );
