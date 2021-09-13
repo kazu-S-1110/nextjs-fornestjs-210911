@@ -3,6 +3,7 @@ import MUIDataTable from 'mui-datatables';
 import moment from 'moment';
 import { useMutationBook } from '../hooks/useMutationBooks';
 import { Button } from '@chakra-ui/react';
+import { EditModal } from './EditModal';
 
 export const BookGarageC = ({ books }) => {
   const { deleteBookMutation } = useMutationBook();
@@ -10,7 +11,7 @@ export const BookGarageC = ({ books }) => {
   const columns = [
     {
       name: '_id',
-      options: { display: true },
+      options: { display: false },
     },
     {
       name: 'title',
@@ -40,14 +41,15 @@ export const BookGarageC = ({ books }) => {
         empty: true,
         customBodyRenderLite: (dataIndex, rowIndex) => {
           return (
-            <Button
-              colorScheme="messenger"
-              onClick={() => {
-                console.log(data[dataIndex]._id);
-              }}
-            >
-              Edit
-            </Button>
+            // <Button
+            //   colorScheme="messenger"
+            //   onClick={() => {
+            //     console.log(data[dataIndex]._id);
+            //   }}
+            // >
+            //   Edit
+            // </Button>
+            <EditModal data={data[dataIndex]} />
           );
         },
       },

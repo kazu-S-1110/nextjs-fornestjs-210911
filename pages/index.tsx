@@ -5,6 +5,7 @@ import React from 'react';
 import { InputForm } from '../src/components/InputForm';
 import Typed from 'react-typed';
 import { BookGarageC } from '../src/components/BookGarageC';
+import { EditModal } from '../src/components/EditModal';
 
 const Home: NextPage = () => {
   const { status, data } = useQueryBook();
