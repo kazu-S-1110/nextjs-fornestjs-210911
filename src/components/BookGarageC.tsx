@@ -10,7 +10,7 @@ export const BookGarageC = ({ books }) => {
   const columns = [
     {
       name: '_id',
-      options: { display: false },
+      options: { display: true },
     },
     {
       name: 'title',
@@ -33,9 +33,29 @@ export const BookGarageC = ({ books }) => {
       },
     },
     {
+      name: 'Edit',
+      options: {
+        filter: false,
+        sort: false,
+        empty: true,
+        customBodyRenderLite: (dataIndex, rowIndex) => {
+          return (
+            <Button
+              colorScheme="messenger"
+              onClick={() => {
+                console.log(data[dataIndex]._id);
+              }}
+            >
+              Edit
+            </Button>
+          );
+        },
+      },
+    },
+
+    {
       name: 'Delete',
       options: {
-        filter: true,
         sort: false,
         empty: true,
         customBodyRender: (value, tableMeta, updateValue) => {
