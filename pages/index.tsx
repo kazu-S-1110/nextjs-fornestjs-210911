@@ -3,10 +3,7 @@ import { Text, Flex, Spinner, HStack } from '@chakra-ui/react';
 import { useQueryBook } from '../src/hooks/useQueryBooks';
 import React from 'react';
 import { InputForm } from '../src/components/InputForm';
-import moment from 'moment';
 import Typed from 'react-typed';
-import { BookGarageA } from '../src/components/BookGarageA';
-import { BookGarageB } from '../src/components/BookGarageB';
 import { BookGarageC } from '../src/components/BookGarageC';
 
 const Home: NextPage = () => {
@@ -32,17 +29,10 @@ const Home: NextPage = () => {
         bgClip="text"
         fontSize="6xl"
         fontWeight="extrabold"
+        mb="5"
       >
         <Typed strings={['OverView']} typeSpeed={100} />
       </Text>
-      {/* {data?.map((book) => (
-        <Text fontSize="lg" fontWeight="extrabold" key={book._id}>
-          {book.title} : {book.model} :
-          {moment(book.created_at).format('YYYY-MM-DD HH:mm:ss')}
-        </Text>
-      ))} */}
-      {/* <BookGarageA data={data} /> */}
-      {/* <BookGarageB books={data} /> */}
       <BookGarageC books={data} />
       <InputForm />
     </Flex>

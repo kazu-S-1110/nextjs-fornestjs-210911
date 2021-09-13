@@ -22,12 +22,12 @@ export const useMutationBook = () => {
     (id: number) => axios.delete(`http://localhost:8000/book/${id}`),
     {
       onSuccess: (variables) => {
-        console.log(variables);
+        console.log(variables.data.id);
         const previousBooks = queryClient.getQueryData<Book[]>('books');
         if (previousBooks) {
           queryClient.setQueryData<Book[]>(
             'books',
-            previousBooks.filter((book) => book.id !== variables)
+            previousBooks.filter((book) => book.id !== variables.data.id)
           );
         }
       },

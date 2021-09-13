@@ -2,12 +2,11 @@ import React from 'react';
 import MUIDataTable from 'mui-datatables';
 import moment from 'moment';
 import { useMutationBook } from '../hooks/useMutationBooks';
-import { Book } from '../types/Book';
-import { Button } from '@material-ui/core';
+import { Button } from '@chakra-ui/react';
 
 export const BookGarageC = ({ books }) => {
   const { deleteBookMutation } = useMutationBook();
-
+  const data = books;
   const columns = [
     {
       name: '_id',
@@ -33,21 +32,32 @@ export const BookGarageC = ({ books }) => {
         customBodyRender: (data) => moment(data).format('YYYY-MM-DD HH:mm'),
       },
     },
+    {
+      name: 'Delete',
+      options: {
+        filter: true,
+        sort: false,
+        empty: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <Button
+              colorScheme="green"
+              onClick={() => {
+                const id = data[tableMeta.rowIndex]._id;
+                deleteBookMutation.mutate(id);
+              }}
+            >
+              Delete
+            </Button>
+          );
+        },
+      },
+    },
   ];
 
   const options = {
-    hasIndex: true,
-    filterType: 'checkbox',
-    enableNestedDataAccess: '.',
-    onRowsDelete: (lookup, data) => {
-      console.log(lookup.data[0].index);
-      console.log(data[0][0]);
-      // const id = data[0][0];
-      // deleteBookMutation.mutate(id);
-    },
+    selectableRows: 'none',
   };
-  console.log('table rendered!');
-
   return (
     <>
       <MUIDataTable
