@@ -6,7 +6,7 @@ export const useMutationBook = () => {
   const queryClient = useQueryClient();
 
   const createBookMutation = useMutation(
-    (book: Omit<EditBook, 'id'>) =>
+    (book: Omit<EditBook, '_id'>) =>
       axios.post<Book>('http://localhost:8000/book/', book),
     {
       onSuccess: (res) => {
@@ -25,9 +25,9 @@ export const useMutationBook = () => {
         console.log(variables.data.id);
         const previousBooks = queryClient.getQueryData<Book[]>('books');
         if (previousBooks) {
-          queryClient.setQueryData<Book[]>(
+          queryClient.setQueryData(
             'books',
-            previousBooks.filter((book) => book.id !== variables.data.id)
+            previousBooks.filter((book) => book._id !== variables.data.id)
           );
         }
       },
